@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	 <data>
+        <!-- Creamos la vista de formulario -->
+	 	<record id="view_mfh_estudiantes_form_id" model="ir.ui.view">
+	 		<field name="name">mfh_estudiantes_form</field>
+            <!-- Nombre del modelo -->
+	 		<field name="model">mfh.estudiantes</field>
+            <field name="type">form</field>
+            	<field name="arch" type="xml">
+                   <form string="Estudiantes">
+                    <!-- Usamos group para mostrar los label de modelo -->
+                       <group>
+                           <field name="nombre"/>
+                           <field name="apellidos"/>
+                           <field name="cedula"/>
+                           <field name="fecha_nacimiento"/>
+                           <field name="direccion"/>
+                           <field name="active"/>
+                       </group>
+                   </form>                             	
+                </field>
+	    </record>
+
+        <!-- Creamos la vista de Arbol -->
+        <record id="view_mfh_estudiantes_tree_id" model="ir.ui.view">
+            <field name="name">mfh_estudiantes_tree</field>
+            <!-- Nombre del modelo -->
+            <field name="model">mfh.estudiantes</field>
+            <field name="type">tree</field>
+                <field name="arch" type="xml">
+                   <tree string="Estudiantes">
+                           <field name="nombre"/>
+                           <field name="apellidos"/>
+                           <field name="cedula"/>
+                           <field name="fecha_nacimiento"/>
+                           <field name="direccion"/>
+                           <field name="active"/>
+                   </tree>                              
+                </field>
+        </record>
+
+
+        <!--  Definimos los eventos -->
+        <record id="action_mfh_estudiantes" model="ir.actions.act_window">
+            <field name="name">mfh Estudiantes</field>
+            <field name="res_model">mfh.estudiantes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--  Declaramos los menu -->
+        <menuitem id="menu_mfh" name="MFH" sequence="10"/>
+        <menuitem id="menu_mfh_inicio" name="Inicio" sequence="10" parent="menu_mfh"/>
+        <menuitem id="menu_mfh_inicio_estudiantes" name="Estudiantes" sequence="10" parent="menu_mfh_inicio" action="action_mfh_estudiantes"/>
+
+
+
+
+     </data>
+</openerp>
